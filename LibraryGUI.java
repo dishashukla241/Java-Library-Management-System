@@ -43,13 +43,18 @@ public class LibraryGUI extends JFrame {
 
         addBtn.addActionListener(e -> {
             try {
+                System.out.println("🔨 Add Book button clicked");
+
                 Book b = new Book(
                     Integer.parseInt(idField.getText()),
                     titleField.getText(),
                     authorField.getText(),
                     Integer.parseInt(quantityField.getText())
                 );
-                manager.addBook(b);
+
+                System.out.println("📦 Book to be added: " + b);
+                manager.addBook(b);  // Call to BookManager
+
                 JOptionPane.showMessageDialog(this, "Book Added!");
                 clearFields();
             } catch (NumberFormatException ex) {
